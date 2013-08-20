@@ -178,6 +178,12 @@
 			exit: _(genericEventAttacher).partial(ranges, 'exit')
 		};
 
+
+		$(window).resize(function () {
+			var winWidth = $(window).width();
+			set.width(winWidth);
+		});
+
 		inst.getRangeActions = getRangeActions;
 		inst.getRangesForChange = getRangesForChange;
 		return inst;
