@@ -1,0 +1,13 @@
+{
+	"name": "respondr",
+	"author": "Nicolas Martin",
+
+	"version": "0.1.0",
+
+	"devDependencies": {
+		"grunt": "*",
+		"grunt-contrib-copy": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-contrib-uglify": "*"
+	}
+}
