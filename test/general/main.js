@@ -1,16 +1,12 @@
 requirejs.config({
-	baseUrl: '',
+	baseUrl: '../',
 
 	paths: {
-		jquery: 'lib/jquery',
 		respondr: 'respondr.min',
 		underscore: 'lib/underscore'
 	},
 
 	shim: {
-		jquery: {
-			exports: '$'
-		},
 		underscore: {
 			exports: '_'
 		}
@@ -21,20 +17,15 @@ requirejs.config({
 
 require([
 
-	'jquery',
 	'respondr'
 
-], function ($, Respondr) {
+], function (Respondr) {
+	window.Respondr = Respondr;
 
-	console.log('started');
 
 	mocha.setup('bdd');
 
-	require([
-	
-		'tests/init'
-
-	], function () {
+	require(['general/test'], function () {
 		mocha.run();
 	});
 

@@ -9,6 +9,7 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 				Respondr.create.should.be.a('function');
 			});
 		});
+
 		describe('instance - range manipulation', function () {
 			var respondr = Respondr.create();
 			it('should have default range "all" for 0 to Infinity', function () {
@@ -21,6 +22,7 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 				_(respondr.ranges).keys().length.should.be.eql(3);
 			});
 		});
+
 		describe('instance - width manipulation', function () {
 			it('should initialize metric.width to -1', function () {
 				var respondr = Respondr.create();
@@ -126,7 +128,6 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 			respondr.set.width(150);
 
 			var actions = respondr.getRangeActions();
-			console.log(actions);
 
 			actions.length.should.eql(2);
 
@@ -230,7 +231,9 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 		it('should throw RangeNotFoundError if range doesn\'t exist', function () {
 			var respondr = Respondr.create();
 			respondr.set.ranges(testRanges);
-			(function(){ respondr.on.enter('smedium', function () { }) }).should.throw(Respondr.RangeNotFoundError);
+			(function(){
+				respondr.on.enter('smedium', function () { });
+			}).should.throw(Respondr.RangeNotFoundError);
 		});
 	});
 
@@ -259,7 +262,9 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 				(function(){ new Range([100, 200])}).should.throw(TypeError);
 			});
 			it('should throw TypeError with no argument', function () {
-				(function(){ new Range() }).should.throw(TypeError);
+				(function(){
+					new Range() 
+				}).should.throw(TypeError);
 			});
 			it('should throw TypeError with no span argument', function () {
 				(function(){ new Range("medium")}).should.throw(TypeError);
@@ -274,6 +279,7 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 				(function(){ new Range([500, 200], 'test')}).should.throw(RangeError);
 			});
 		});
+
 		describe('events', function () {
 			var emptyFn = function () { return this; };
 			it('should init with no events', function () {
@@ -297,6 +303,7 @@ define(['respondr', 'underscore'], function (Respondr, _) {
 				(function() { range.addEvent("exit", "doSomething") }).should.throw(TypeError);
 			});
 		});
+
 		describe('boundary crossing', function () {
 			var range = new Range([100, 200], 'test');
 

@@ -170,6 +170,9 @@
 				metric.lastWidth = metric.width;
 				metric.width = val;
 				executeActions();
+			},
+			logging: function (val) {
+				logging = val;
 			}
 		};
 		
@@ -178,8 +181,23 @@
 			exit: _(genericEventAttacher).partial(ranges, 'exit')
 		};
 
+		var listen = function () {
+			if (window.addEventListener) {
+				window.addEventListener('resize', updateWidthFromWindow);
+			} else if (window.attachEvent) {
+				window.attachEvent('onresize', updateWidthFromWindow);
+			}
+		};
+
+		var updateWidthFromWindow = function () {
+			var newWidth = window.innerWidth || document.documentElement.clientWidth;
+			set.width(newWidth);
+		};
+
 		inst.getRangeActions = getRangeActions;
 		inst.getRangesForChange = getRangesForChange;
+		inst.listen = listen;
+
 		return inst;
 	};
 	
