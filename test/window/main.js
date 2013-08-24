@@ -2,7 +2,7 @@ requirejs.config({
 	baseUrl: '',
 
 	paths: {
-		respondr: '../respondr',
+		respondr: '../respondr.min',
 		underscore: '../lib/underscore'
 	},
 

@@ -13,6 +13,9 @@ define(['respondr'], function (Respondr) {
 	respondr.set.logging(true);
 
 	function init(opts) {
+
+		var allEl = document.createElement('li');
+		allEl.innerHTML = "all";
 		
 		var largeEl = document.createElement('li');
 		largeEl.innerHTML = "large";
@@ -27,6 +30,7 @@ define(['respondr'], function (Respondr) {
 
 		respondr.on.enter('all').run(function () {
 			target.appendChild(listRoot);
+			listRoot.appendChild(allEl);
 		});
 
 		respondr.on.enter('large').run(function () {

@@ -126,6 +126,7 @@
 		var metric = inst.metric = { lastWidth: -1, width: -1 };
 
 		var ranges = inst.ranges = { all: new Range([0, Infinity], 'all') };
+		var logging = false;
 
 		var getRangesForChange = function () {
 			return _(ranges).filter(function (range) {
@@ -187,6 +188,7 @@
 			} else if (window.attachEvent) {
 				window.attachEvent('onresize', updateWidthFromWindow);
 			}
+			updateWidthFromWindow();
 		};
 
 		var updateWidthFromWindow = function () {
