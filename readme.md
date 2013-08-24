@@ -2,7 +2,7 @@
 #### setup and teardown functions for responsive web development
 
 #### [download minified](https://raw.github.com/nmartin413/Respondr/master/src/respondr.min.js)
-
+#### depends on [underscore.js](https://github.com/jashkenas/underscore)
 
 ### Usage
 
